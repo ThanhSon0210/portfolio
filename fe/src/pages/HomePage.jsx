@@ -149,7 +149,7 @@ const HomePage = () => {
           </div>
           <div className="bg-gray-800 p-6 rounded-lg">
             <h3 className="text-2xl font-semibold">Website bán đồ thể thao SONNU-SPORT</h3>
-            <p className="text-gray-300 mt-2">Tập thể dục thể thao với sonnu-sport, được xây dựng với React JS</p>
+            <p className="text-gray-300 mt-2">Tập thể dục thể thao với sonnu-sport, được xây dựng với React JS.</p>
           </div>
         </div>
       </section>
