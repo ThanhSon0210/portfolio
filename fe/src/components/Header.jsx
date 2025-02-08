@@ -14,15 +14,11 @@ const Header = () => {
 
       {/* Menu */}
       <nav className="hidden ml-[-15%] md:flex space-x-10 text-2xl font-medium">
-        <Link to="/" className="relative group">
+        <Link to="/" className="relative group font-bold">
           Trang chủ
           <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
         </Link>
-        <Link to="/about" className="relative group">
-          Về tôi
-          <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
-        </Link>
-        <Link to="/contact" className="relative group">
+        <Link to="/contact" className="relative group font-bold">
           Liên hệ
           <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
         </Link>
@@ -30,7 +26,10 @@ const Header = () => {
 
       {/* Đăng nhập & Đổi ngôn ngữ */}
       <div className="flex items-center space-x-5">
-        <FaUserCircle className="text-2xl cursor-pointer hover:text-gray-300 transition-all duration-200" />
+        <Link to="/login">
+          <FaUserCircle className="text-2xl cursor-pointer hover:text-gray-300 transition-all duration-200" />
+        </Link>
+        
         <FaGlobe className="text-2xl cursor-pointer hover:text-gray-300 transition-all duration-200" />
       </div>
     </header>

@@ -63,7 +63,7 @@ const HomePage = () => {
 
       {/* About Section */}
       <section className="max-w-6xl mx-auto text-center py-20 px-6">
-      <h2 className="text-5xl font-bold text-white">Kỹ năng mà mình có</h2>
+      <h2 className="text-5xl font-bold text-white">Kỹ năng của mình</h2>
       <p className="text-xl text-gray-300 mt-4 max-w-3xl mx-auto">
         Có kinh nghiệm xây dựng ứng dụng web với React, TailwindCSS, và Node.js. Đam mê công nghệ và luôn cập nhật những xu hướng mới nhất.
       </p>
