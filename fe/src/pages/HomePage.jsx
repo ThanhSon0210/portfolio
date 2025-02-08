@@ -1,6 +1,11 @@
-import { FaGithub, FaLinkedin, FaEnvelope, FaArrowRight, FaTools, FaUsers,FaReact,FaNodeJs, FaCertificate } from "react-icons/fa";
+import React from "react";
+import { Link } from "react-router-dom";
+import { FaArrowRight, FaTools, FaReact,FaNodeJs } from "react-icons/fa";
+import { useGetProjectsQuery } from "../services/project/project.service"; 
 
 const HomePage = () => {
+  const { data: projects, isLoading, isError } = useGetProjectsQuery();
+
   return (
     <div className="bg-black  text-white min-h-screen w-full">
       {/* Hero Section */}
@@ -71,11 +76,12 @@ const HomePage = () => {
           <h3 className="text-xl font-bold text-blue-500 mt-3">Back-end</h3>
           <ul className="mt-3 space-y-2 text-gray-300">
             <li>Node.js</li>
+            <li>Sql</li>
+            <li>NoSql</li>
             <li>PHP</li>
             <li>Express.js</li>
           </ul>
         </div>
-        
         {/* Front-end */}
         <div className="bg-gray-800 p-6 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 border border-transparent hover:border-red-500">
           <FaReact className="text-red-500 text-5xl mx-auto" />
@@ -102,6 +108,9 @@ const HomePage = () => {
           <ul className="mt-3 space-y-2 text-gray-300">
             <li>Visual Studio Code</li>
             <li>Github</li>
+            <li>GitLab</li>
+            <li>Mongo DB</li>
+            <li>Xam PP</li>
             <li>WordPress</li>
           </ul>
         </div>
@@ -136,23 +145,56 @@ const HomePage = () => {
       </div>
 
       {/* Projects Section */}
-      <section id="projects" className="max-w-6xl mx-auto text-center py-20 px-6">
-        <h2 className="text-5xl font-bold">Dự án đã tham gia</h2>
-        <div className="grid md:grid-cols-3 gap-6 mt-10">
-          <div className="bg-gray-800 p-6 rounded-lg">
-            <h3 className="text-2xl font-semibold">Website bán đồ công nghệ HTPS</h3>
-            <p className="text-gray-300 mt-2">Nền tảng thương mại điện tử hiện đại với PHP và MySql.</p>
+      <section id="projects" className="max-w-6xl mx-auto py-20 px-6 text-white">
+        {/* Tiêu đề */}
+        <h2 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-yellow-400 tracking-wide relative inline-block">
+          Dự án đã tham gia
+        </h2>
+
+
+        {projects && projects.length > 0 ? (
+          <div className="grid md:grid-cols-2 gap-10 mt-12">
+            {projects.map((project, index) => (
+              <div
+                key={project.id}
+                className={`relative bg-gray-900 p-6 rounded-2xl shadow-lg overflow-hidden group transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl ${
+                  index % 2 === 0 ? "md:flex-row-reverse" : "md:flex-row"
+                } flex flex-col`}
+              >
+                {/* Ảnh dự án */}
+                <div className="w-full md:w-1/3">
+                  <img
+                    src={`/img/${project.logo}`} 
+                    alt={project.name}
+                    className="w-full h-40  rounded-lg shadow-md group-hover:shadow-xl transition-all"
+                  />
+                </div>
+
+                {/* Nội dung dự án */}
+                <div className="md:w-2/3 md:pl-6 mt-4 md:mt-0">
+                  <h3 className="text-2xl font-semibold group-hover:text-red-500 transition-all">
+                    {project.name}
+                  </h3>
+                  <p className="text-gray-400 mt-2">{project.description}</p>
+
+                  {/* Nút xem chi tiết */}
+                  <Link
+                    to={`/projects/${project.id}`}
+                    className="inline-block mt-4 px-5 py-2 bg-red-500 text-white rounded-full shadow-md transition-all duration-300 hover:bg-red-600"
+                  >
+                    Xem chi tiết
+                  </Link>
+                </div>
+              </div>
+            ))}
           </div>
-          <div className="bg-gray-800 p-6 rounded-lg">
-            <h3 className="text-2xl font-semibold">Website đặt vé xem phim cyperscreend  </h3>
-            <p className="text-gray-300 mt-2">" Đồ án tốt nghiệp "</p>
-          </div>
-          <div className="bg-gray-800 p-6 rounded-lg">
-            <h3 className="text-2xl font-semibold">Website bán đồ thể thao SONNU-SPORT</h3>
-            <p className="text-gray-300 mt-2">Tập thể dục thể thao với sonnu-sport, được xây dựng với React JS.</p>
-          </div>
-        </div>
+        ) : (
+          !isLoading &&
+          !isError && <p className="text-gray-400 text-center mt-6">Không có dự án nào để hiển thị.</p>
+        )}
       </section>
+
+
 
       {/* Contact Section */}
       <footer className="text-center py-20 bg-gray-800 bg-cover bg-center bg-no-repeat" 
