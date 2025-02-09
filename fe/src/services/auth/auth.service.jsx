@@ -12,10 +12,13 @@ export const authApi = createApi({
         method: "POST",
         body: userData,
       }),
-      // Xử lý phản hồi thành công nếu cần
-      transformResponse: (response) => response,
+      transformResponse: (response) => {
+        if (response.token) {
+          localStorage.setItem("token", response.token); // Lưu token
+        }
+        return response;
+      },
     }),
-    
 
     // Đăng nhập
     login: builder.mutation({
@@ -28,18 +31,16 @@ export const authApi = createApi({
 
     // Lấy thông tin user
     getUserInfo: builder.query({
-      query: () => ({
-        url: "/auth/me",
-        method: "GET",
-        headers: (headers) => {
-          const token = localStorage.getItem("token");
-          if (token) {
-            headers.set("Authorization", `Bearer ${token}`);
-          }
-          return headers;
-        },
-      }),
+      query: () => {
+        const token = localStorage.getItem("token");
+        return {
+          url: "/auth/me",
+          method: "GET",
+          headers: token ? { Authorization: `Bearer ${token}` } : {},
+        };
+      },
     }),
+    
   }),
 });
 
