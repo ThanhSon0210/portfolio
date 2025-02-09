@@ -10,52 +10,58 @@ const HomePage = () => {
     <div className="bg-black  text-white min-h-screen w-full">
       {/* Hero Section */}
       <header className="flex flex-col md:flex-row items-center justify-center text-center md:text-left py-24 px-6 w-full">
-        {/* Cột ảnh */}
-        <div className="md:w-1/2 flex justify-center relative h-96 w-96">
-          {/* Ảnh 1 */}
-          <img
-            src="/img/3.jpg"
-            alt="Ảnh 1"
-            className="absolute w-64 h-64 object-cover rounded-lg shadow-lg transition-all duration-300 hover:scale-125 hover:z-10"
-            style={{ top: "20%", left: "5%" }}
-          />
-          <img
-            src="/img/8.jpg"
-            alt="Ảnh 1"
-            className="absolute w-64 h-64 object-cover rounded-lg shadow-lg transition-all duration-300 hover:scale-125 hover:z-10"
-            style={{ top: "-10%", left: "25%" }}
-          />
-          {/* Ảnh 2 */}
-          <img
-            src="/img/5.jpg"
-            alt="Ảnh 2"
-            className="absolute w-64 h-64 object-cover rounded-lg shadow-lg transition-all duration-300 hover:scale-125 hover:z-10"
-            style={{ top: "10%", right: "10%" }}
-          />
+  {/* Cột ảnh */}
+  <div className="md:w-1/2 flex justify-center relative h-96 w-96 hidden md:flex">
+    {/* Ảnh 1 */}
+    <img
+      src="/img/3.jpg"
+      alt="Ảnh 1"
+      className="absolute w-64 h-64 object-cover rounded-lg shadow-lg transition-all duration-300 hover:scale-125 hover:z-10"
+      style={{ top: "20%", left: "5%" }}
+    />
+    <img
+      src="/img/8.jpg"
+      alt="Ảnh 1"
+      className="absolute w-64 h-64 object-cover rounded-lg shadow-lg transition-all duration-300 hover:scale-125 hover:z-10"
+      style={{ top: "-10%", left: "25%" }}
+    />
+    {/* Ảnh 2 */}
+    <img
+      src="/img/5.jpg"
+      alt="Ảnh 2"
+      className="absolute w-64 h-64 object-cover rounded-lg shadow-lg transition-all duration-300 hover:scale-125 hover:z-10"
+      style={{ top: "10%", right: "10%" }}
+    />
 
-          {/* Ảnh nổi bật */}
-          <img
-            src="/img/7.jpg"
-            alt="Ảnh chính"
-            className="absolute w-64 h-64 object-cover rounded-lg shadow-2xl scale-110 transition-all duration-300 hover:scale-125 hover:z-10"
-            style={{ top: "40%", left: "34%" }}
-          />
-        </div>
+    {/* Ảnh nổi bật */}
+    <img
+      src="/img/7.jpg"
+      alt="Ảnh chính"
+      className="absolute w-64 h-64 object-cover rounded-lg shadow-2xl scale-110 transition-all duration-300 hover:scale-125 hover:z-10"
+      style={{ top: "40%", left: "34%" }}
+    />
+  </div>
 
+  {/* Cột nội dung */}
+  <div className="md:w-1/2 flex flex-col items-center md:items-start">
+    <h1 className="text-6xl flex justify-center items-center font-bold">
+      Hi, mình là <span className="text-red-500 md:text-6xl ml-2">Lê Thanh Sơn</span>
+    </h1>
+    <p className="text-lg md:text-2xl text-white mt-4 max-w-2xl">
+      Là một Front-end Developer đam mê sáng tạo, mình luôn hướng đến việc thiết
+      kế và phát triển những giao diện website chất lượng cao, không chỉ đẹp mắt
+      mà còn tối ưu về hiệu suất, đảm bảo mang lại trải nghiệm người dùng mượt
+      mà và ấn tượng nhất có thể.
+    </p>
+    <a
+      href="#projects"
+      className="mt-10 px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded-lg flex items-center gap-2"
+    >
+      Xem dự án của mình <FaArrowRight />
+    </a>
+  </div>
+</header>
 
-        {/* Cột nội dung */}
-        <div className="md:w-1/2 flex flex-col items-center md:items-start">
-          <h1 className="text-6xl flex justify-center items-center  font-bold">
-            Hi, mình là <span className="text-red-500 md:text-6xl ml-2">Lê Thanh Sơn</span>
-          </h1>
-          <p className="text-lg md:text-2xl text-white mt-4 max-w-2xl">
-          Là một Front-end Developer đam mê sáng tạo, mình luôn hướng đến việc thiết kế và phát triển những giao diện website chất lượng cao, không chỉ đẹp mắt mà còn tối ưu về hiệu suất, đảm bảo mang lại trải nghiệm người dùng mượt mà và ấn tượng nhất có thể.
-          </p>
-          <a href="#projects" className="mt-10 px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded-lg flex items-center gap-2">
-            Xem dự án của mình <FaArrowRight />
-          </a>
-        </div>
-      </header>
 
       <div class="flex justify-center">
         <hr class="w-[90%] h-[0.5px] bg-sky-300 border-none origin-center animate-pulse" />
